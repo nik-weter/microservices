@@ -1,2 +1,1 @@
-# microservices
-For otus lesson 15
+# Micorservices

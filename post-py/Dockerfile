@@ -10,5 +10,6 @@ WORKDIR /app
 
 RUN pip install --upgrade pip && pip install -r /app/requirements.txt
 RUN apk del .build-deps gcc musl-dev
-
-CMD ["python3", "post_app.py"]
+EXPOSE  5000
+#CMD ["python3", "post_app.py"]
+ENTRYPOINT ["python3", "post_app.py"]

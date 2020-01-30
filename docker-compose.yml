@@ -12,27 +12,53 @@ services:
           - comment_db 
 
   ui:
-    build: ./ui
-    image: ${USERNAME}/ui:1.0
+          # build: ./ui
+    image: ${USERNAME}/ui
     ports:
       - ${UI_HOST_PORT}:${UI_CONTAINER_PORT}/tcp
     networks:
       - front_net
 
   post: 
-    build: ./post-py 
-    image: ${USERNAME}/post:1.0 
+  # build: ./post-py 
+    image: ${USERNAME}/post
     networks: 
       - front_net
       - back_net 
 
   comment: 
-    build: ./comment
-    image: ${USERNAME}/comment:1.0 
+  #build: ./comment
+    image: ${USERNAME}/comment
     networks: 
       - front_net
       - back_net 
 
+
+  prometheus:
+    image: ${USER_NAME}/prometheus
+    ports:
+      - '9090:9090'
+    networks:
+      - front_net
+      - back_net
+
+  node-exporter:
+    image: prom/node-exporter:v0.15.0
+    user: root
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+    command:
+      - '--path.procfs=/host/proc'
+      - '--path.sysfs=/host/sys'
+      - '--collector.filesystem.ignored-mount-points="^/(sys|proc|dev|host|etc)($$|/)"'
+    networks:
+      - front_net
+      - back_net
+
+    
+    
 volumes: 
   post_db: 
 

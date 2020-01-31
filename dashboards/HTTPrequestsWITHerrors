@@ -1,0 +1,86 @@
+{
+  "datasource": "Prometheus",
+  "type": "graph",
+  "title": "HTTP requests with error status code",
+  "gridPos": {
+    "x": 0,
+    "y": 8,
+    "w": 10,
+    "h": 6
+  },
+  "id": 4,
+  "targets": [
+    {
+      "refId": "A",
+      "expr": "rate(ui_request_count{http_status=~\"^[45].*\"}[5m])"
+    }
+  ],
+  "options": {
+    "dataLinks": []
+  },
+  "renderer": "flot",
+  "yaxes": [
+    {
+      "label": null,
+      "show": true,
+      "logBase": 1,
+      "min": null,
+      "max": null,
+      "format": "short"
+    },
+    {
+      "label": null,
+      "show": true,
+      "logBase": 1,
+      "min": null,
+      "max": null,
+      "format": "short"
+    }
+  ],
+  "xaxis": {
+    "show": true,
+    "mode": "time",
+    "name": null,
+    "values": [],
+    "buckets": null
+  },
+  "yaxis": {
+    "align": false,
+    "alignLevel": null
+  },
+  "lines": true,
+  "fill": 1,
+  "fillGradient": 0,
+  "linewidth": 1,
+  "dashes": false,
+  "hiddenSeries": false,
+  "dashLength": 10,
+  "spaceLength": 10,
+  "points": false,
+  "pointradius": 2,
+  "bars": false,
+  "stack": false,
+  "percentage": false,
+  "legend": {
+    "show": true,
+    "values": false,
+    "min": false,
+    "max": false,
+    "current": false,
+    "total": false,
+    "avg": false
+  },
+  "nullPointMode": "null",
+  "steppedLine": false,
+  "tooltip": {
+    "value_type": "individual",
+    "shared": true,
+    "sort": 0
+  },
+  "timeFrom": null,
+  "timeShift": null,
+  "aliasColors": {},
+  "seriesOverrides": [],
+  "thresholds": [],
+  "timeRegions": []
+}

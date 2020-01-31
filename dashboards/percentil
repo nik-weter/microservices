@@ -1,0 +1,86 @@
+{
+  "datasource": null,
+  "type": "graph",
+  "title": "Panel Title",
+  "gridPos": {
+    "x": 0,
+    "y": 0,
+    "w": 12,
+    "h": 8
+  },
+  "id": 6,
+  "targets": [
+    {
+      "refId": "A",
+      "expr": "histogram_quantile(0.95, sum(rate(ui_request_response_time_bucket[5m])) by (le)) "
+    }
+  ],
+  "options": {
+    "dataLinks": []
+  },
+  "renderer": "flot",
+  "yaxes": [
+    {
+      "label": null,
+      "show": true,
+      "logBase": 1,
+      "min": null,
+      "max": null,
+      "format": "short"
+    },
+    {
+      "label": null,
+      "show": true,
+      "logBase": 1,
+      "min": null,
+      "max": null,
+      "format": "short"
+    }
+  ],
+  "xaxis": {
+    "show": true,
+    "mode": "time",
+    "name": null,
+    "values": [],
+    "buckets": null
+  },
+  "yaxis": {
+    "align": false,
+    "alignLevel": null
+  },
+  "lines": true,
+  "fill": 1,
+  "fillGradient": 0,
+  "linewidth": 1,
+  "dashes": false,
+  "hiddenSeries": false,
+  "dashLength": 10,
+  "spaceLength": 10,
+  "points": false,
+  "pointradius": 2,
+  "bars": false,
+  "stack": false,
+  "percentage": false,
+  "legend": {
+    "show": true,
+    "values": false,
+    "min": false,
+    "max": false,
+    "current": false,
+    "total": false,
+    "avg": false
+  },
+  "nullPointMode": "null",
+  "steppedLine": false,
+  "tooltip": {
+    "value_type": "individual",
+    "shared": true,
+    "sort": 0
+  },
+  "timeFrom": null,
+  "timeShift": null,
+  "aliasColors": {},
+  "seriesOverrides": [],
+  "thresholds": [],
+  "timeRegions": []
+}

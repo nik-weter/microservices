@@ -2,27 +2,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: comment
+  name: post
   labels:
     app: reddit
-    component: comment
+    component: post
 spec:
   replicas: 3
   selector:
     matchLabels:
       app: reddit
-      component: comment
+      component: post
   template:
     metadata:
-      name: comment
+      name: post
       labels:
         app: reddit
-        component: comment
+        component: post
     spec:
       containers:
-      - image: nikweter/comment
-        name: comment
+      - image: nikweter/post
+        name: post
         env:
-        - name: COMMENT_DATABASE_HOST
-          value: comment-db
+        - name: POST_DATABASE_HOST
+          value: post-db
 
